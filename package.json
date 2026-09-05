@@ -1,0 +1,20 @@
+{
+  "name": "claude-code-rpc",
+  "version": "1.0.0",
+  "description": "Discord Rich Presence for Claude Code — shows what project and task you're working on, live in your Discord status.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "claude-code-rpc": "bin/claude-code-rpc.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node bin/claude-code-rpc.js start",
+    "install-hooks": "node bin/claude-code-rpc.js install",
+    "uninstall-hooks": "node bin/claude-code-rpc.js uninstall",
+    "status": "node bin/claude-code-rpc.js status"
+  },
+  "dependencies": {}
+}

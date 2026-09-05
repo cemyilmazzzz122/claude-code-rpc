@@ -1,0 +1,20 @@
+# Linux user service. Install with:
+#   mkdir -p ~/.config/systemd/user
+#   cp systemd/claude-code-rpc.service ~/.config/systemd/user/
+#   # Edit the ExecStart path below to point at your clone of this repo.
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now claude-code-rpc.service
+#
+# View logs with: journalctl --user -u claude-code-rpc.service -f
+[Unit]
+Description=Claude Code Discord Rich Presence
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env node %h/claude-code-rpc/bin/claude-code-rpc.js start
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

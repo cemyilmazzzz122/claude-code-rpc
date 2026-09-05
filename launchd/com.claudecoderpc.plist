@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+macOS LaunchAgent. Install with:
+  mkdir -p ~/Library/LaunchAgents
+  cp launchd/com.claudecoderpc.plist ~/Library/LaunchAgents/
+  # Edit the paths below (node + this repo's absolute path) first.
+  launchctl load ~/Library/LaunchAgents/com.claudecoderpc.plist
+
+Find your node path with: which node
+View logs at: ~/.claude-code-rpc/daemon.out.log and daemon.err.log
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.claudecoderpc</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/node</string>
+        <string>/absolute/path/to/claude-code-rpc/bin/claude-code-rpc.js</string>
+        <string>start</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/YOUR_USERNAME/.claude-code-rpc/daemon.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/YOUR_USERNAME/.claude-code-rpc/daemon.err.log</string>
+</dict>
+</plist>
